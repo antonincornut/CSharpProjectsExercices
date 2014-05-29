@@ -36,6 +36,20 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Processing.cs" />
+    <Compile Include="lib\ndesk-options\Options.cs" />
+    <Compile Include="ProcessingGet.cs" />
+    <Compile Include="ProcessingTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\monodoc\sources\ndesk-options-docs.source" />
+    <None Include="lib\monodoc\sources\ndesk-options-docs.tree" />
+    <None Include="lib\monodoc\sources\ndesk-options-docs.zip" />
+    <None Include="lib\ndesk-options\NDesk.Options.dll" />
+    <None Include="lib\pkgconfig\ndesk-options.pc" />
+  </ItemGroup>
 </Project>
