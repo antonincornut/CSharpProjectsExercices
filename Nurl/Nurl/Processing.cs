@@ -52,6 +52,67 @@ namespace Nurl
 
 			return false;
 		}
+
+		public bool testIfUrlExist()
+		{
+			if(url != null)
+				return true;
+
+			return false;
+		}
+
+		public bool testIfPathFileExist()
+		{
+			if(pathFile != null)
+				return true;
+
+			return false;
+		}
+
+		public bool testIfPathTimeExist()
+		{
+			if(nTime != null)
+				return true;
+
+			return false;
+		}
+
+		public bool testIfAverageExist()
+		{
+			if(nTime != null)
+				return true;
+
+			return false;
+		}
+
+		public bool testIfUrlIsValid()
+		{
+
+			if(url.Contains("http://www.") || url.Contains("http:") || url.Contains("www."))
+				return true;
+
+			return false;
+		}
+
+		public bool testIfTimelIsValid()
+		{
+			int time = int.Parse(nTime);
+
+			if (time >= 0) 
+				return true;
+
+			return false;
+		}
+
+		public bool testIfTimeExistWithAvg()
+		{
+			if (nTime != null && average != null) 
+				return true;
+
+			return false;
+		}
+
+
 	}
 }
 
