@@ -14,7 +14,17 @@ namespace Nurl
 
 			var process = new Processing(args);
 
-			Assert.AreEqual(typeof(Boolean), process.testFirstArgs().GetType());
+			Assert.AreEqual(typeof(Boolean), process.testFirstArgsIsGet().GetType());
+		}
+
+		[Test ()]
+		public void testIfTestExist ()
+		{
+			string[] args = { "test", "-url", "\"http://abc\"", "-save", "file.txt" };
+
+			var process = new Processing(args);
+
+			Assert.AreEqual(typeof(Boolean), process.testFirstArgsisTest().GetType());
 		}
 	}
 }

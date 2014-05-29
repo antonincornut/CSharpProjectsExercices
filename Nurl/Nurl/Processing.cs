@@ -37,9 +37,17 @@ namespace Nurl
 
 		}
 
-		public bool testFirstArgs()
+		public bool testFirstArgsIsGet()
 		{
-			if(argsFirst != null || argsFirst == "get" || argsFirst == "test" || argsFirst == "GET" || argsFirst == "TEST" )
+			if(argsFirst != null || argsFirst == "get" || argsFirst == "GET")
+				return true;
+
+			return false;
+		}
+
+		public bool testFirstArgsisTest()
+		{
+			if(argsFirst != null || argsFirst == "test" || argsFirst == "TEST" )
 				return true;
 
 			return false;
