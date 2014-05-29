@@ -23,8 +23,11 @@ namespace Nurl
 
 		public Processing (string[] args)
 		{	
+			try{
+			argsFirst = args [0];
+			}catch{
+			}
 	
-			string dir = null;
 			new OptionSet {
 				{ "url=|URL=", Url => url = Url },
 				{ "save=|SAVE=", Save => pathFile = Save },
@@ -32,14 +35,14 @@ namespace Nurl
 				{ "avg|AVG", Average => average = Average },
 			}.Parse (args);
 
-			Console.Write(url);
-			Console.Write(pathFile);
-			Console.Write(nTime);
-			Console.Write(average);
+		}
 
-			if (dir == null)
-				throw new InvalidOperationException ("Missing required option -o=DIR");
+		public bool testFirstArgs()
+		{
+			if(argsFirst != null || argsFirst == "get" || argsFirst == "test" || argsFirst == "GET" || argsFirst == "TEST" )
+				return true;
 
+			return false;
 		}
 	}
 }
