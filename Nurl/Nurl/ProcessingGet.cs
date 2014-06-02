@@ -1,4 +1,8 @@
 ﻿using System;
+using System.IO;
+using System.Text;
+using System.Net;
+using System.Diagnostics;
 
 namespace Nurl
 {
@@ -9,16 +13,20 @@ namespace Nurl
 		}
 
 		public string showUrl(string url){
-			string str="";
 
-			return str;
+			System.Net.WebClient wc = new System.Net.WebClient();
+			string html = wc.DownloadString(url);
+
+			return html;
 		}
 
-		public bool saveUrlInPathFile(string url, string pathFile){
+		public void saveUrlInPathFile(string url, string pathFile){
 
-			bool b=true;
-
-			return b;
+			if (File.Exists(pathFile))
+			{
+				File.Delete(pathFile);
+			}
+			System.IO.File.WriteAllText (pathFile, showUrl(url));
 
 		}
 	}

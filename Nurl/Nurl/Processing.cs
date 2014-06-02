@@ -35,7 +35,66 @@ namespace Nurl
 				{ "avg|AVG", Average => average = Average },
 			}.Parse (args);
 
+			start ();
+
 		}
+
+		public void start(){
+
+			Console.WriteLine("Launch Process");
+
+			if(argsFirst.Equals("get") || argsFirst.Equals("GET")){
+
+				Console.WriteLine("Command : GET");
+
+				if (testIfUrlExist ()) {
+					ProcessingGet processGet = new ProcessingGet ();
+
+					if(testIfPathFileExist())
+						processGet.saveUrlInPathFile (url, pathFile);
+			
+					 else
+						Console.WriteLine(processGet.showUrl(url));
+
+					Console.WriteLine("URL est : " + url);
+					if(pathFile != null)
+						Console.WriteLine("Le chemin est : " + pathFile);
+				}
+			}
+			if(argsFirst.Equals("test") || argsFirst.Equals("TEST")){
+
+				Console.WriteLine("Command : TEST");
+
+				if (testIfUrlExist ()) {
+					ProcessingTest processTest = new ProcessingTest ();
+
+					if (testIfTimelIsValid ()) {
+						Console.WriteLine ("SKURT");
+						int time=0;
+						try
+						{
+							time = int.Parse(nTime);
+						}
+						catch(Exception ex)
+						{
+							Console.WriteLine("Erreur de parsing");
+						}
+
+						processTest.timeToDownloadContentUrl (url,time);
+						Console.WriteLine ("SKURT 222");
+					}
+
+					else
+						//Console.WriteLine(processGet.showUrl(url));
+
+					Console.WriteLine("URL est : " + url);
+					if(pathFile != null)
+						Console.WriteLine("Le chemin est : " + pathFile);
+				}
+			}
+
+		}
+			
 
 		public bool testFirstArgsIsGet()
 		{
